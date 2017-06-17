@@ -18,7 +18,7 @@ $ docker pull quay.io/ssro/znc-docker
 Configure ZNC
 
 ```
-$ docker run -it --rm -v $(pwd)/conf:/var/lib/znc znc sh -c "znc --makeconf --datadir=/var/lib/znc"
+$ docker run -it --rm -v $(pwd)/conf:/var/lib/znc quay.io/ssro/znc-docker sh -c "znc --makeconf --datadir=/var/lib/znc"
 ```
 
 The output of the above command will configure your bouncer:
