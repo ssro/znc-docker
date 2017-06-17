@@ -13,12 +13,12 @@ If you start fresh and have no config files continue reading. If you have the co
 
 ```
 $ docker pull quay.io/ssro/znc-docker
-$ docker run -it --rm -v ($pwd)/conf:/var/lib/znc:rw quay.io/ssro/znc-docker sh
 ```
-Inside this temporary container execute:
+
+Configure ZNC
 
 ```
-/ # su-exec znc:znc znc --foreground --makeconf --datadir /var/lib/znc
+$ docker run -it --rm -v $(pwd)/conf:/var/lib/znc znc sh -c "znc --makeconf --datadir=/var/lib/znc"
 ```
 
 The output of the above command will configure your bouncer:
@@ -77,10 +77,9 @@ The output of the above command will configure your bouncer:
 [ ** ] https://<znc_server_ip>:65000/
 [ ** ]
 [ ?? ] Launch ZNC now? (yes/no) [yes]: no
-/ # exit
 ```
 
-Answer no to the last step of configuration, "Launch ZNC now?" and exit the container.
+Answer `no` to the last step of configuration, "Launch ZNC now?". The container generate the config and will exit.
 
 N.B: adjust your configuration based on your preferences
 

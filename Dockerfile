@@ -2,11 +2,18 @@ FROM alpine:latest
 
 LABEL maintainer Sebastian Sasu <sebi@nologin.ro>
 
-RUN apk add --update znc tini su-exec \
-  && rm -rf /var/cache/apk/*
+ENV ZNC_VER znc-1.6.5
 
-VOLUME ["/var/lib/znc"]
+RUN adduser znc -D
+RUN apk add --update ca-certificates g++ icu-dev make openssl-dev perl-dev python3-dev swig tcl-dev tini wget zlib-dev \
+    && wget -O /tmp/$ZNC_VER.tar.gz http://znc.in/releases/$ZNC_VER.tar.gz \
+    && tar zxf /tmp/$ZNC_VER.tar.gz \
+    && cd $ZNC_VER \
+    && ./configure --prefix=/usr --enable-python --enable-perl --enable-tcl \
+    && make && make install && cd \
+    && apk del g++ make && rm -rf /var/cache/apk/* rm -Rf /tmp/$ZNC_VER
 
 ENTRYPOINT ["/sbin/tini", "--"]
-CMD ["/sbin/su-exec", "znc:znc", "znc", "--foreground", "--datadir", "/var/lib/znc"]
-
+USER znc
+VOLUME ["/var/lib/znc"]
+CMD ["znc", "--foreground", "--datadir", "/var/lib/znc"]
