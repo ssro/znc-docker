@@ -94,8 +94,15 @@ drwx------ 2    100    101   21 Jun 17 06:55 configs
 
 Start ZNC
 ```
-$ docker run -d --name znc-docker -v $(pwd)/conf:/var/lib/znc quay.io/ssro/znc-docker
+$ docker run -d -p <host_port>:<port_defined_in_znc_config> --name znc-docker -v $(pwd)/conf:/var/lib/znc quay.io/ssro/znc-docker
 ```
+
+Replace `host_port` and `port_defined_in_znc_config` accordingly. For example:
+
+```
+$ docker run -d -p 65500:65500 --name znc-docker -v $(pwd)/conf:/var/lib/znc quay.io/ssro/znc-docker
+```
+
 
 #### I have the configuration files
 
