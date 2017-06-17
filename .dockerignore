@@ -1,0 +1,7 @@
+README*
+Dockerfile*
+.git/*
+.dockerignore
+.gitignore
+.circle.y?ml
+.travis.y?ml
