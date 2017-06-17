@@ -13,7 +13,7 @@ If you start fresh and have no config files continue reading. If you have the co
 
 ```
 $ docker pull quay.io/ssro/znc-docker
-$ docker run -it --rm -v ($pwd)/conf:/var/lib/znc:rw quay.io/ssro/znc-docker sh
+$ docker run -it --rm -v $(pwd)/conf:/var/lib/znc:rw quay.io/ssro/znc-docker sh
 ```
 Inside this temporary container execute:
 
