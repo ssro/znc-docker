@@ -79,7 +79,7 @@ The output of the above command will configure your bouncer:
 [ ?? ] Launch ZNC now? (yes/no) [yes]: no
 ```
 
-Answer `no` to the last step of configuration, "Launch ZNC now?". The container generate the config and will exit.
+Answer `no` to the last step of configuration, `Launch ZNC now?`. The container will generate the config and exit.
 
 N.B: adjust your configuration based on your preferences
 
