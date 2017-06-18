@@ -3,7 +3,7 @@
 ### ZNC IRC bouncer on docker
 
 ### Usage
- - clone this repo
+ - clone this repo & make your changes
  - build the docker image
  - follow below setup (this is based on the quay.io docker image)
 
